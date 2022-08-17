@@ -36,18 +36,25 @@ const TodoList = () => {
   // save todos
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todo));
-    console.log(todo);
+    // console.log(todo);
   }, [todo]);
   // delete a todo
   const deleteTodo = (e) => {
     const id = parseInt(e.target.id);
     setTodo(todo.filter((todo) => todo.id !== id));
   };
+
   return (
     <>
-      <h1>To Do</h1>
+      <h1 style={{ textDecoration: "underline" }}>To Do List</h1>
       <form onSubmit={onSubmit}>
-        <input autoFocus type="text" value={text} onChange={onChange} />
+        <input
+          placeholder="write a todo and press enter"
+          autoFocus
+          type="text"
+          value={text}
+          onChange={onChange}
+        />
         <button>Add</button>
       </form>
       <ul>
